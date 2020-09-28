@@ -1,7 +1,7 @@
 {
   "name": "log-parser",
   "description": "Log Parser for HTTP Requests",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "luvuong-le @luvuong-le",
   "bin": {
     "log-parser": "./bin/run"
