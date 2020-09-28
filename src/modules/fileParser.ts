@@ -36,9 +36,7 @@ export default class FileParser {
       .sort((a, b) => b.count - a.count)
       .splice(0, limit);
 
-    return visitedUrls.map((visited) =>
-      visited.path !== "" ? visited.path : "/"
-    );
+    return visitedUrls.map((visited) => visited.path);
   }
 
   /**
@@ -53,12 +51,12 @@ export default class FileParser {
     );
 
     return !addressSearch
-      ? this.store.addresses.push({ ip: matches!.groups!.ipAddress, count: 0 })
+      ? this.store.addresses.push({ ip: matches!.groups!.ipAddress, count: 1 })
       : addressSearch.count++;
   }
 
   /**
-   * Store an array of objects of visited urls based on first primary url /blog/test = /blog and the visit count
+   * Store an array of objects of visited urls and their counts
    *
    * @param  {string} line
    * @param  {RegExpExecArray|null} matches
@@ -68,18 +66,16 @@ export default class FileParser {
       matches!.groups!.url
     );
 
-    const urlPath = urlMatches!.groups!.path.split("/");
-
-    const urlPathRoot = urlPath.includes("http") ? urlPath[2] : urlPath[1];
+    const urlPath = urlMatches!.groups!.path;
 
     const urlSearch = this.store.visitedUrls.find(
-      (url) => url.path === urlPathRoot
+      (url) => url.path === urlPath
     );
 
     return !urlSearch
       ? this.store.visitedUrls.push({
-          path: urlPathRoot,
-          count: 0,
+          path: urlPath,
+          count: 1,
         })
       : urlSearch.count++;
   }

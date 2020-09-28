@@ -27,7 +27,7 @@ describe("FileParser", () => {
   });
 
   it("should return top 3 visited URLs", () => {
-    expect(fileParser.getVisitedUrls(3)).contains("docs");
+    expect(fileParser.getVisitedUrls(3)[0]).contains("docs");
   });
 
   it("should return top 3 active ip addresses", () => {

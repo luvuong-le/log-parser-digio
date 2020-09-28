@@ -15,6 +15,8 @@ Log Parser for HTTP Request log file
 * [Usage](#usage)
 * [Commands](#commands)
 * [Testing](#testing)
+* [Considerations-Thoughts](#considerations-thoughts)
+* [Improvements](#improvements-to-be-made)
 
 # Tech Stack
 
@@ -88,14 +90,13 @@ npm run test
 
 ![Testing Demo](assets/log-parsing-tests.gif)
 
-# Considerations / Thoughts
+# Considerations-Thoughts
 
 - While choosing the top 3 active IP addresses or visited urls, there were some that were overlapping. For now, sort and only retrieved the top 3.
 - Decided to go with TypeScript for type safety and extensibility in the future if required
 - Arrow functions can be refactored if single parameter but oclif ESLint has it's own standards
 - Making use of regex named groups to make it easier to group data required
 - Could also use split instead of regex to potentially achieve the same result
-- Unsure if most visited URLs refer to the base url, eg /docs, /blog or the entire thing (small code change required if the full result)
 
 # Improvements to be made
 
