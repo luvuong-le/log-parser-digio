@@ -92,7 +92,8 @@ npm run test
 
 - While choosing the top 3 active IP addresses or visited urls, there were some that were overlapping. For now, sort and only retrieved the top 3.
 - Decided to go with TypeScript for type safety and extensibility in the future if required
-
+- Arrow functions can be refactored if single parameter but oclif ESLint has it's own standards
+- Making use of regex named groups to make it easier to group data required
 
 # Improvements to be made
 

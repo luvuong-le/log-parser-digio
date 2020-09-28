@@ -3,9 +3,10 @@ import { expect } from "chai";
 import FileParser from "../../src/modules/fileParser";
 
 describe("FileParser", () => {
-  const fileParser = new FileParser("data/requests.log");
+  let fileParser: FileParser;
 
   beforeEach((done) => {
+    fileParser = new FileParser("data/requests.log");
     fileParser.parseFile(done);
   });
 
@@ -14,10 +15,11 @@ describe("FileParser", () => {
     expect(fileParser.getVisitedUrls(3).length).greaterThan(0);
   });
 
-  it("should return an error if no file is found", async () => {
+  it("should return nothing if empty file", async () => {
     const fileParser = new FileParser("data/empty-requests.log");
-    await fileParser.parseFile(() => {});
-    expect(fileParser.getUniqueAddresses()).equal(0);
+    await fileParser.parseFile(() => {
+      expect(fileParser.getUniqueAddresses()).equal(0);
+    });
   });
 
   it("should return correct unique addresses", () => {
@@ -33,15 +35,20 @@ describe("FileParser", () => {
   });
 
   it("should print results correctly", () => {
-    const consoleStub = sinon.stub(console, "log");
+    const log = sinon.spy(console, "log");
     fileParser.printResults();
-    expect(consoleStub.callCount).equal(3);
+
+    expect(log.called).equal(true);
+    expect(log.callCount).equal(3);
   });
 
-  it("should return nothing if empty file", async () => {
+  it("should return an error if file does not exist", async () => {
+    const errorLog = sinon.spy(console, "error");
     const fileParser = new FileParser("data/requests-not-found.log");
-    const res = await fileParser.parseFile(() => {});
-    expect(fileParser.getUniqueAddresses()).equal(0);
+    const result = await fileParser.parseFile(() => {});
+
+    expect(result).contains("no such file");
+    expect(errorLog.called).equal(true);
   });
 
   it("should return the log store", () => {

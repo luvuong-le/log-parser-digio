@@ -8,9 +8,9 @@ type Url = {
   count: number;
 };
 
-type LogStoreConfig = {
+type LogStore = {
   addresses: Array<Address>;
   visitedUrls: Array<Url>;
 };
 
-export default LogStoreConfig;
+export default LogStore;
