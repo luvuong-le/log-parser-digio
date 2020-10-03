@@ -44,6 +44,33 @@ npm install or npm i
 ./bin/run.cmd or ./bin/run 
 ```
 
+## Production
+
+In order to run production, you can use npm to publish the CLI or also use oclif-dev to pack the CLI for different operating systems. 
+
+### NPM Publishing
+
+```
+npm publish
+
+Note: you may also use npm publish --dry-run to test run the publishing process for any errors or other information
+```
+
+### Oclif Dev
+
+1. Install the `oclif-dev` module
+
+```
+npm i -g oclif-dev
+```
+
+2. Run the pack command according to your operating system
+
+For more information on these commands: _[oclif-dev](https://github.com/oclif/dev-cli)_
+
+
+_See more documenation for releasing: [Oclif Releasing](https://oclif.io/docs/releasing)_
+
 # Commands
 * [`log-parser analyse [FILE]`](#log-parser-analyse-file)
 * [`log-parser help [COMMAND]`](#log-parser-help-command)
