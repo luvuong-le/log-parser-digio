@@ -12,8 +12,8 @@ Log Parser for HTTP Request log file
 [![License](https://img.shields.io/npm/l/log-parser.svg)](https://github.com/luvuong-le/log-parser-digio/blob/master/package.json)
 
 * [Tech Stack](#tech-stack)
+* [Installation](#installation)
 * [Usage](#usage)
-* [Commands](#commands)
 * [Testing](#testing)
 * [Considerations-Thoughts](#considerations-thoughts)
 * [Improvements](#improvements-to-be-made)
@@ -26,7 +26,7 @@ Log Parser for HTTP Request log file
 | Node JS    | JavaScript Runtime                                                              | https://nodejs.org/en/ |
 | oclif   | Open CLI Framework                                                              | https://oclif.io/ |
 
-# Usage
+# Installation
 
 ## Local
 
@@ -71,7 +71,7 @@ For more information on these commands: _[oclif-dev](https://github.com/oclif/de
 
 _See more documenation for releasing: [Oclif Releasing](https://oclif.io/docs/releasing)_
 
-# Commands
+# Usage
 * [`log-parser analyse [FILE]`](#log-parser-analyse-file)
 * [`log-parser help [COMMAND]`](#log-parser-help-command)
 
